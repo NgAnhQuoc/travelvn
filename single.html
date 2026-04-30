@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninh Bình Ký Ức Sống | Việt Nam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar scrolled">
+        <a href="index.html" class="logo">
+            <i class="fas fa-mountain" style="font-size: 2rem; color: var(--gold);"></i>
+            <div class="logo-text">
+                <span>VIỆT NAM</span>
+                <span>KÝ ỨC SỐNG</span>
+            </div>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Trang Chủ</a>
+            <a href="category.html">Điểm Đến</a>
+            <a href="#">Hành Trình</a>
+            <a href="#">Trải Nghiệm</a>
+            <a href="single.html" class="active">Giới Thiệu</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm điểm đến...">
+            <div class="nav-search" onclick="toggleSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Overlay Nav -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="category.html">Điểm Đến</a>
+            <a href="#">Hành Trình</a>
+            <a href="#">Trải Nghiệm</a>
+            <a href="single.html" class="active">Giới Thiệu</a>
+        </nav>
+    </div>
+
+    <!-- Page Header (Video Player Placeholder) -->
+    <section class="page-header" style="background: url('assets/images/ninhbinh.png') center/cover; position: relative;">
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.6);"></div>
+        <div class="container" style="position: relative; z-index: 10;">
+            <div style="margin-bottom: 30px;">
+                <span style="font-family: 'Montserrat'; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); border: 1px solid var(--gold); padding: 5px 15px; border-radius: 50px;">Cẩm Nang Du Lịch</span>
+            </div>
+            <h1 class="font-serif">Ninh Bình<br><span class="text-gold">Ký Ức Sống</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px;">Tiếng vọng từ ngàn năm cố đô Hoa Lư.</p>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="container">
+        <div class="article-body">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
+                <img src="https://i.pravatar.cc/150?img=11" alt="Director" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold);">
+                <div>
+                    <h4 style="margin-bottom: 4px; font-size: 1rem; font-family: 'Montserrat'; font-weight: 600;">Bởi: Lê Trần Anh</h4>
+                    <p style="margin-bottom: 0; font-size: 0.85rem; color: var(--text-muted);">Đăng tải: 29 Tháng 4, 2026 &middot; 8 Phút đọc</p>
+                </div>
+            </div>
+
+            <p><span class="drop-cap">N</span>inh Bình không chỉ là một bức tranh thủy mặc tuyệt đẹp, mà còn là một cuốn sử thi hào hùng được tạc bằng đá núi. Trong chuyến đi khám phá lần này, chúng tôi đưa bạn quay ngược thời gian, trở về với những câu chuyện chưa từng được kể về Cố đô Hoa Lư.</p>
+
+            <p>Hành trình bắt đầu từ dòng sông Ngô Đồng phẳng lặng, nơi những người lái đò địa phương vẫn ngày ngày kể lại sự tích về vua Đinh Tiên Hoàng bằng chất giọng mộc mạc mang đậm hơi thở của vùng đất bãi bồi.</p>
+
+            <img src="assets/images/boat.png" alt="Sông Ngô Đồng">
+
+            <div style="border-left: 3px solid var(--gold); padding: 20px 30px; margin: 50px 0; background: rgba(226, 186, 113, 0.05); border-radius: 0 16px 16px 0;">
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--gold); margin-bottom: 0;">"Mỗi tảng đá ở đây đều có linh hồn. Cứ đến mùa nước lên, dường như chúng lại cất tiếng hát vọng về từ quá khứ ngàn năm."</p>
+            </div>
+
+            <p>Xuyên suốt hành trình, bạn sẽ không chỉ tập trung vào cảnh sắc hùng vĩ của Tràng An hay Tam Cốc, mà còn đi sâu vào đời sống tĩnh lặng của những người thợ chạm khắc đá thủ công ở Ninh Vân. Bàn tay họ thô ráp, nứt nẻ, nhưng từng nhát búa vung lên đều là sự kế thừa tinh hoa từ bao thế hệ trước.</p>
+
+            <!-- Cast / Crew -->
+            <div style="margin-top: 60px; padding: 30px; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border);">
+                <h3 style="font-family: 'Montserrat'; font-size: 1rem; color: var(--gold); margin-bottom: 20px; text-transform: uppercase;">Thông tin chuyến đi</h3>
+                <div class="trip-info-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.95rem; color: var(--text-muted);">
+                    <div><strong style="color: var(--text-main);">Khởi hành:</strong> Hàng ngày</div>
+                    <div><strong style="color: var(--text-main);">Di chuyển:</strong> Xe Limousine</div>
+                    <div><strong style="color: var(--text-main);">Lưu trú:</strong> Resort 5 sao</div>
+                    <div><strong style="color: var(--text-main);">Ẩm thực:</strong> Đặc sản địa phương</div>
+                </div>
+            </div>
+
+            <!-- Tags & Share -->
+            <div class="tags-share" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 10px;">
+                    <span style="padding: 6px 16px; font-size: 0.85rem; border: 1px solid var(--border); border-radius: 50px; color: var(--text-muted);">Khám Phá</span>
+                    <span style="padding: 6px 16px; font-size: 0.85rem; border: 1px solid var(--border); border-radius: 50px; color: var(--text-muted);">Lịch Sử</span>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: var(--gold); font-size: 1.2rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--gold); font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="container">
+        <!-- Top Footer Grid -->
+        <div class="footer-top">
+            <div class="quote-box">
+                <div class="quote-bg"><img src="assets/images/baidinh.png" alt="Bg"></div>
+                <div class="quote-overlay"></div>
+                <i class="fas fa-quote-left"></i>
+                <p>Chúng tôi tin rằng, mỗi vùng đất đều có câu chuyện riêng. Và Việt Nam, là những câu chuyện đáng được lắng nghe và lưu giữ.</p>
+                <a href="#" class="btn btn-outline" style="align-self: flex-start; border-radius: 50px;">TÌM HIỂU THÊM</a>
+            </div>
+            <div class="feature-col">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>TRẢI NGHIỆM THỰC</h4>
+                <p>Khám phá tận cùng vẻ đẹp của cảnh quan và con người Việt Nam.</p>
+            </div>
+            <div class="feature-col">
+                <i class="fas fa-star"></i>
+                <h4>DỊCH VỤ CAO CẤP</h4>
+                <p>Nghỉ dưỡng tiêu chuẩn 5 sao với những đặc quyền cá nhân hóa.</p>
+            </div>
+            <div class="feature-col">
+                <i class="fas fa-leaf"></i>
+                <h4>DU LỊCH BỀN VỮNG</h4>
+                <p>Bảo tồn thiên nhiên và tôn trọng văn hóa bản địa qua mỗi bước đi.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Footer Nav -->
+        <div class="footer-bottom">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fas fa-mountain" style="font-size: 1.5rem; color: var(--gold);"></i>
+                    <div class="logo-text">
+                        <span style="font-size: 1.1rem;">VIỆT NAM</span>
+                        <span style="font-size: 0.5rem;">KÝ ỨC SỐNG</span>
+                    </div>
+                </a>
+                <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 250px;">Đồng hành cùng bạn trên mọi nẻo đường, khám phá những chân trời mới tại dải đất hình chữ S.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h5>ĐIỀU HƯỚNG</h5>
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Khách sạn</a></li>
+                        <li><a href="#">Du thuyền</a></li>
+                        <li><a href="#">Cẩm nang</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>THEO DÕI CHÚNG TÔI</h5>
+                    <div class="social-nav">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>LIÊN HỆ</h5>
+                    <ul style="font-size: 0.85rem; color: var(--text-muted);">
+                        <li style="margin-bottom: 15px;"><i class="far fa-envelope" style="margin-right: 10px;"></i> info@vietnamkyucsong.vn</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> 0823 456 789</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 Việt Nam Travel. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleSearch() {
+            const input = document.getElementById('searchInput');
+            input.classList.toggle('active');
+            if(input.classList.contains('active')) {
+                input.focus();
+            }
+        }
+
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const overlay = document.getElementById('mobileOverlay');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html>

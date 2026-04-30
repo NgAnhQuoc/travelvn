@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Địa Danh | Việt Nam Ký Ức Sống</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar scrolled">
+        <a href="index.html" class="logo">
+            <i class="fas fa-mountain" style="font-size: 2rem; color: var(--gold);"></i>
+            <div class="logo-text">
+                <span>VIỆT NAM</span>
+                <span>KÝ ỨC SỐNG</span>
+            </div>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Trang Chủ</a>
+            <a href="category.html" class="active">Điểm Đến</a>
+            <a href="#">Hành Trình</a>
+            <a href="#">Trải Nghiệm</a>
+            <a href="#">Giới Thiệu</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm điểm đến...">
+            <div class="nav-search" onclick="toggleSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Overlay Nav -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="category.html" class="active">Điểm Đến</a>
+            <a href="#">Hành Trình</a>
+            <a href="#">Trải Nghiệm</a>
+            <a href="#">Giới Thiệu</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="font-serif">Khám Phá <span class="text-gold">Địa Danh</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Tìm lại những ký ức tuyệt đẹp ẩn mình trong từng góc phố, ngọn đồi của dải đất hình chữ S.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section" style="padding-top: 40px;">
+        <div class="container category-layout" style="display: flex; gap: 40px; position: relative;">
+            
+            <!-- Sidebar -->
+            <div style="width: 25%;">
+                <aside class="filter-sidebar">
+                    <div class="filter-group">
+                        <h4>Khu Vực</h4>
+                        <label><input type="checkbox" checked> Tất cả <span style="margin-left: auto; font-size: 0.8rem; opacity: 0.5;">(45)</span></label>
+                        <label><input type="checkbox"> Miền Bắc <span style="margin-left: auto; font-size: 0.8rem; opacity: 0.5;">(15)</span></label>
+                        <label><input type="checkbox"> Miền Trung <span style="margin-left: auto; font-size: 0.8rem; opacity: 0.5;">(18)</span></label>
+                        <label><input type="checkbox"> Miền Nam <span style="margin-left: auto; font-size: 0.8rem; opacity: 0.5;">(12)</span></label>
+                    </div>
+
+                    <div class="filter-group" style="margin-bottom: 0;">
+                        <h4>Chủ Đề</h4>
+                        <label><input type="checkbox" checked> Con người & Đời sống</label>
+                        <label><input type="checkbox"> Làng nghề truyền thống</label>
+                        <label><input type="checkbox"> Lịch sử & Di sản</label>
+                        <label><input type="checkbox"> Thiên nhiên vĩ đại</label>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Grid -->
+            <div style="width: 75%;">
+                <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+                    
+                    <!-- Card 1 -->
+                    <div class="card" onclick="window.location.href='single.html'">
+                        <div class="card-img">
+                            <img src="assets/images/ninhbinh.png" alt="Ninh Bình">
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Ký Ức Cố Đô<br>Hoa Lư</h3>
+                            <div class="card-meta"><i class="fas fa-map-marker-alt"></i> Miền Bắc</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card" onclick="window.location.href='single.html'">
+                        <div class="card-img">
+                            <img src="assets/images/hoian.png" alt="Hội An">
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Hồn Phố Cổ<br>Hội An</h3>
+                            <div class="card-meta"><i class="fas fa-map-marker-alt"></i> Miền Trung</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card" onclick="window.location.href='single.html'">
+                        <div class="card-img">
+                            <img src="assets/images/boat.png" alt="Sông Nước">
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Nhịp Sống<br>Miền Tây</h3>
+                            <div class="card-meta"><i class="fas fa-map-marker-alt"></i> Miền Nam</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card" onclick="window.location.href='single.html'">
+                        <div class="card-img">
+                            <img src="assets/images/hangmua.png" alt="Hang Múa">
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Dấu Chân Giao Tiên<br>Hang Múa</h3>
+                            <div class="card-meta"><i class="fas fa-map-marker-alt"></i> Miền Bắc</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card" onclick="window.location.href='single.html'">
+                        <div class="card-img">
+                            <img src="assets/images/mekong.png" alt="Mekong">
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Nghệ Nhân<br>Gốm Bát Tràng</h3>
+                            <div class="card-meta"><i class="fas fa-map-marker-alt"></i> Miền Bắc</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="card" onclick="window.location.href='single.html'">
+                        <div class="card-img">
+                            <img src="assets/images/baidinh.png" alt="Bái Đính">
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Tiếng Chuông<br>Chùa Bái Đính</h3>
+                            <div class="card-meta"><i class="fas fa-map-marker-alt"></i> Miền Bắc</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pagination -->
+                <div style="margin-top: 60px; display: flex; justify-content: center; gap: 15px;">
+                    <a href="#" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: var(--gold); color: #000; border-radius: 50%; font-weight: 600; font-family: 'Montserrat';">1</a>
+                    <a href="#" class="btn-outline" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; padding: 0;">2</a>
+                    <a href="#" class="btn-outline" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; padding: 0;"><i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="container">
+        <!-- Top Footer Grid -->
+        <div class="footer-top">
+            <div class="quote-box">
+                <div class="quote-bg"><img src="assets/images/baidinh.png" alt="Bg"></div>
+                <div class="quote-overlay"></div>
+                <i class="fas fa-quote-left"></i>
+                <p>Chúng tôi tin rằng, mỗi vùng đất đều có câu chuyện riêng. Và Việt Nam, là những câu chuyện đáng được lắng nghe và lưu giữ.</p>
+                <a href="#" class="btn btn-outline" style="align-self: flex-start; border-radius: 50px;">TÌM HIỂU THÊM</a>
+            </div>
+            <div class="feature-col">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>TRẢI NGHIỆM THỰC</h4>
+                <p>Khám phá tận cùng vẻ đẹp của cảnh quan và con người Việt Nam.</p>
+            </div>
+            <div class="feature-col">
+                <i class="fas fa-star"></i>
+                <h4>DỊCH VỤ CAO CẤP</h4>
+                <p>Nghỉ dưỡng tiêu chuẩn 5 sao với những đặc quyền cá nhân hóa.</p>
+            </div>
+            <div class="feature-col">
+                <i class="fas fa-leaf"></i>
+                <h4>DU LỊCH BỀN VỮNG</h4>
+                <p>Bảo tồn thiên nhiên và tôn trọng văn hóa bản địa qua mỗi bước đi.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Footer Nav -->
+        <div class="footer-bottom">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fas fa-mountain" style="font-size: 1.5rem; color: var(--gold);"></i>
+                    <div class="logo-text">
+                        <span style="font-size: 1.1rem;">VIỆT NAM</span>
+                        <span style="font-size: 0.5rem;">KÝ ỨC SỐNG</span>
+                    </div>
+                </a>
+                <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 250px;">Đồng hành cùng bạn trên mọi nẻo đường, khám phá những chân trời mới tại dải đất hình chữ S.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h5>ĐIỀU HƯỚNG</h5>
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Khách sạn</a></li>
+                        <li><a href="#">Du thuyền</a></li>
+                        <li><a href="#">Cẩm nang</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>THEO DÕI CHÚNG TÔI</h5>
+                    <div class="social-nav">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>LIÊN HỆ</h5>
+                    <ul style="font-size: 0.85rem; color: var(--text-muted);">
+                        <li style="margin-bottom: 15px;"><i class="far fa-envelope" style="margin-right: 10px;"></i> info@vietnamkyucsong.vn</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> 0823 456 789</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 Việt Nam Travel. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleSearch() {
+            const input = document.getElementById('searchInput');
+            input.classList.toggle('active');
+            if(input.classList.contains('active')) {
+                input.focus();
+            }
+        }
+
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const overlay = document.getElementById('mobileOverlay');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html>
