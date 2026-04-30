@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sơ Đồ Trang | Việt Nam Ký Ức Sống</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Sitemap Specific Styles */
+        .sitemap-section {
+            padding: 40px 0 80px;
+        }
+
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .sitemap-group {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 35px 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sitemap-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .sitemap-group:hover {
+            border-color: rgba(226, 186, 113, 0.3);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .sitemap-group:hover::before {
+            opacity: 1;
+        }
+
+        .sitemap-group-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(226, 186, 113, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .sitemap-group h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .sitemap-group .group-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .sitemap-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .sitemap-links li {
+            border-top: 1px solid var(--border);
+        }
+
+        .sitemap-links li:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sitemap-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 5px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .sitemap-links a::after {
+            content: '\f061';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.7rem;
+            margin-left: auto;
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: var(--transition);
+        }
+
+        .sitemap-links a:hover {
+            color: var(--gold);
+            padding-left: 12px;
+        }
+
+        .sitemap-links a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .sitemap-links a i {
+            font-size: 0.75rem;
+            width: 20px;
+            text-align: center;
+            color: var(--gold);
+            opacity: 0.6;
+        }
+
+        .sitemap-links a:hover i {
+            opacity: 1;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold);
+        }
+
+        .breadcrumb i {
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+
+        /* Stats bar */
+        .sitemap-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat-item i {
+            font-size: 1.2rem;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+
+        .stat-item .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sitemap-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sitemap-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sitemap-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .sitemap-group {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar scrolled">
+        <a href="index.html" class="logo">
+            <i class="fas fa-mountain" style="font-size: 2rem; color: var(--gold);"></i>
+            <div class="logo-text">
+                <span>VIỆT NAM</span>
+                <span>KÝ ỨC SỐNG</span>
+            </div>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Trang Chủ</a>
+            <a href="category.html">Điểm Đến</a>
+            <a href="#">Hành Trình</a>
+            <a href="#">Trải Nghiệm</a>
+            <a href="#">Giới Thiệu</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm điểm đến...">
+            <div class="nav-search" onclick="toggleSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Overlay Nav -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="category.html">Điểm Đến</a>
+            <a href="#">Hành Trình</a>
+            <a href="#">Trải Nghiệm</a>
+            <a href="#">Giới Thiệu</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="font-serif">Sơ Đồ <span class="text-gold">Trang Web</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Tổng quan cấu trúc và tất cả các trang trên website Việt Nam Ký Ức Sống.</p>
+        </div>
+    </section>
+
+    <!-- Sitemap Content -->
+    <section class="sitemap-section">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i></a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Sơ đồ trang</span>
+            </div>
+
+            <!-- Stats -->
+            <div class="sitemap-stats">
+                <div class="stat-item">
+                    <i class="fas fa-layer-group"></i>
+                    <div>
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Danh mục</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Trang nội dung</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-images"></i>
+                    <div>
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Điểm đến</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <div class="stat-number">30/04</div>
+                        <div class="stat-label">Cập nhật gần nhất</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sitemap Grid -->
+            <div class="sitemap-grid">
+
+                <!-- Group 1: Trang Chính -->
+                <div class="sitemap-group">
+                    <div class="sitemap-group-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Trang Chính</h3>
+                    <p class="group-desc">Các trang chính của website</p>
+                    <ul class="sitemap-links">
+                        <li><a href="index.html"><i class="fas fa-angle-right"></i> Trang Chủ</a></li>
+                        <li><a href="category.html"><i class="fas fa-angle-right"></i> Khám Phá Địa Danh</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Bài Viết Chi Tiết</a></li>
+                        <li><a href="sitemap.html"><i class="fas fa-angle-right"></i> Sơ Đồ Trang</a></li>
+                    </ul>
+                </div>
+
+                <!-- Group 2: Điểm Đến -->
+                <div class="sitemap-group">
+                    <div class="sitemap-group-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Điểm Đến</h3>
+                    <p class="group-desc">Khám phá các điểm du lịch nổi bật</p>
+                    <ul class="sitemap-links">
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Tràng An</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Tam Cốc – Bích Động</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Hang Múa</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Cố Đô Hoa Lư</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Chùa Bái Đính</a></li>
+                    </ul>
+                </div>
+
+                <!-- Group 3: Hành Trình -->
+                <div class="sitemap-group">
+                    <div class="sitemap-group-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Hành Trình</h3>
+                    <p class="group-desc">Các tuyến du lịch trải nghiệm</p>
+                    <ul class="sitemap-links">
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Con Người Miền Bắc</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Một Ngày Ở Miền Tây</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Lịch Sử Sống Lại</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Làng Nghề Truyền Thống</a></li>
+                    </ul>
+                </div>
+
+                <!-- Group 4: Cẩm Nang -->
+                <div class="sitemap-group">
+                    <div class="sitemap-group-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Cẩm Nang Du Lịch</h3>
+                    <p class="group-desc">Kinh nghiệm và chia sẻ hữu ích</p>
+                    <ul class="sitemap-links">
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Ngắm Bình Minh Trên Tràng An</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Gặp Gỡ Nghệ Nhân Làng Gốm</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Đặc Sản Vùng Cao Tây Bắc</a></li>
+                        <li><a href="single.html"><i class="fas fa-angle-right"></i> Tam Cốc Mùa Lúa Chín Vàng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Group 5: Thông Tin -->
+                <div class="sitemap-group">
+                    <div class="sitemap-group-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Thông Tin</h3>
+                    <p class="group-desc">Về chúng tôi và liên hệ</p>
+                    <ul class="sitemap-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Giới Thiệu</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Liên Hệ</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Chính Sách Bảo Mật</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Điều Khoản Sử Dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Group 6: Kết Nối -->
+                <div class="sitemap-group">
+                    <div class="sitemap-group-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Kết Nối</h3>
+                    <p class="group-desc">Theo dõi trên mạng xã hội</p>
+                    <ul class="sitemap-links">
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div class="footer-bottom">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fas fa-mountain" style="font-size: 1.5rem; color: var(--gold);"></i>
+                    <div class="logo-text">
+                        <span style="font-size: 1.1rem;">VIỆT NAM</span>
+                        <span style="font-size: 0.5rem;">KÝ ỨC SỐNG</span>
+                    </div>
+                </a>
+                <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 250px;">Đồng hành cùng bạn trên mọi nẻo đường, khám phá những chân trời mới tại dải đất hình chữ S.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h5>ĐIỀU HƯỚNG</h5>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="category.html">Điểm đến</a></li>
+                        <li><a href="#">Cẩm nang</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>THEO DÕI CHÚNG TÔI</h5>
+                    <div class="social-nav">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>LIÊN HỆ</h5>
+                    <ul style="font-size: 0.85rem; color: var(--text-muted);">
+                        <li style="margin-bottom: 15px;"><i class="far fa-envelope" style="margin-right: 10px;"></i> info@vietnamkyucsong.vn</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> 0823 456 789</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 Việt Nam Travel. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleSearch() {
+            const input = document.getElementById('searchInput');
+            input.classList.toggle('active');
+            if(input.classList.contains('active')) {
+                input.focus();
+            }
+        }
+
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const overlay = document.getElementById('mobileOverlay');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html>
